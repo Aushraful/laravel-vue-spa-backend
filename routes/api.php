@@ -8,6 +8,7 @@ use \App\Http\Controllers\Auth\SignInController;
 use \App\Http\Controllers\Auth\SignOutController;
 
 use \App\Http\Controllers\ProfileController;
+use \App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,8 @@ Route::group(['prefix'=>'auth'], function (){
     Route::post('signin', SignInController::class);
     Route::post('signout', SignOutController::class);
 });
-Route::group([], function (){
-    Route::get('profile', ProfileController::class);
-});
+
+Route::get('profile', ProfileController::class);
+
+Route::apiResource('products', ProductController::class);
 
