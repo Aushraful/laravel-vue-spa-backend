@@ -17,13 +17,14 @@ class SignUpController extends Controller
             [
                 'name'     => 'required|string|between:3,100',
                 'email'    => 'required|email|unique:users',
-                'password' => 'required|confirmed|min:6',
+                'password' => 'required|min:6',
+                'confirmPassword' => 'required|same:password|min:6',
             ]
         );
 
         if ($validator->fails()) {
             return response()->json(
-                [$validator->errors()],
+                ['errors' => $validator->errors()],
                 422
             );
         }

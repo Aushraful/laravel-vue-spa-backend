@@ -16,6 +16,7 @@ class ProductCollection extends JsonResource
     {
 //        return parent::toArray($request);
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'price' => $this->price,
             'image' => asset('storage/images/products/'.$this->image),
